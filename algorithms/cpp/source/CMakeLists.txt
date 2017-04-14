@@ -11,4 +11,4 @@ macro(leetcode_add_case _name)
 endmacro(leetcode_add_case)
 
 leetcode_add_case(string_segment_number)
-#add_executable(string_segment_number string_segment_number.cpp)
+leetcode_add_case(find_anagrams_in_string)
