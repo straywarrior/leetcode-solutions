@@ -12,3 +12,4 @@ endmacro(leetcode_add_case)
 
 leetcode_add_case(string_segment_number)
 leetcode_add_case(find_anagrams_in_string)
+leetcode_add_case(arrange_coins)
