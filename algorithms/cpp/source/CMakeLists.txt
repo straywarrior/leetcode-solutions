@@ -5,6 +5,11 @@
 #  Copyright (C) 2017 StrayWarrior
 # ----------------------------------------------------------------------------
 
+option(LEETCODE_DEBUG "Enable debug output." OFF)
+if (LEETCODE_DEBUG)
+    add_definitions("-DLEETCODE_DEBUG")
+endif()
+
 macro(leetcode_add_case _name)
     add_executable(${_name} ${_name}.cpp)
     add_test(NAME "test_${_name}" COMMAND ${_name})
@@ -15,3 +20,4 @@ leetcode_add_case(find_anagrams_in_string)
 leetcode_add_case(arrange_coins)
 leetcode_add_case(pacific_atlantic_water_flow)
 leetcode_add_case(path_sum_3)
+leetcode_add_case(boomerang_number)
