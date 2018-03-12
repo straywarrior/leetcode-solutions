@@ -24,7 +24,7 @@ public:
         // we can get: Sum(nums) + m * (n - 1) = n * A
         // However, A = Min(nums) + m
         // So it's easy to find that m = Sum - n * Min
-        int m = INT_MAX;
+        int m = std::numeric_limits<int>::max();
         int sum = 0;
         for (auto p : nums) {
             m = std::min(m, p);

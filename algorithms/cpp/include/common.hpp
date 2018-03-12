@@ -15,5 +15,6 @@
 #include <unordered_set>
 #include <cstddef>
 #include <utility>
+#include <limits>
 
 #endif /* !COMMON_HPP */
