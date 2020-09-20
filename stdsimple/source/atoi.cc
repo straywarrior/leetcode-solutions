@@ -30,6 +30,9 @@ int atoi(const char* str) {
     if (*cursor == '-') {
         negative = -1;
         ++cursor;
+    } else if (*cursor == '+') {
+        negative = 1;
+        ++cursor;
     }
     for (;*cursor != '\0'; ++cursor) {
         if (!isdigit(*cursor)) {
@@ -50,6 +53,7 @@ TEST_CASE("correctness", "simplestd.atoi") {
         TestCase { "42", 42 },
         TestCase { "3.14159", 3},
         TestCase { "-3.14159", -3},
+        TestCase { "+3.14159", +3},
         TestCase { "31337 with words", 31337},
         TestCase { "words and 2", 0},
         TestCase { "\r\t\n42", 42},
