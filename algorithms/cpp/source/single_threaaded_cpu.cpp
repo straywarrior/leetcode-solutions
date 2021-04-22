@@ -35,6 +35,30 @@ public:
         }
     };
 
+    vector<int> solve_v2(vector<vector<int>>& tasks) {
+        vector<int> ret;
+        int n = tasks.size();
+        priority_queue<TaskQueueValue, vector<TaskQueueValue>, greater<TaskQueueValue>> task_queue;
+        vector<Task> sorted_tasks(n);
+        for (int i = 0; i < n; ++i) {
+            sorted_tasks[i].idx = i;
+            sorted_tasks[i].enqueue_time = tasks[i][0];
+            sorted_tasks[i].process_time = tasks[i][1];
+        }
+        std::sort(
+            sorted_tasks.begin(), sorted_tasks.end(),
+            [](const Task& a, const Task& b) {
+                return a.enqueue_time < b.enqueue_time;
+            }
+        );
+
+        int i = 0;
+        while (!task_queue.empty() || i < n) {
+            
+        }
+        return ret;
+    }
+
     vector<int> solve_v1(vector<vector<int>>& tasks) {
         int n = tasks.size();
         vector<Task> sorted_tasks(n);
