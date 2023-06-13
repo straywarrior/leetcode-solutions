@@ -8,6 +8,7 @@
 #include "common.hpp"
 #include <queue>
 #include <list>
+#include <climits>
 
 #define CATCH_CONFIG_MAIN
 #include "catch/catch.hpp"
