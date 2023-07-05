@@ -3,6 +3,7 @@
 #include <tuple>
 #include <string>
 #include <cctype>
+#include <climits>
 #include <iostream>
 
 namespace simplestd {
