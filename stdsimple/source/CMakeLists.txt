@@ -1,5 +1,6 @@
 set(sources
-    atoi.cc)
+    atoi.cc
+    quick_sort.cc)
 
 add_executable(run
     main.cc
