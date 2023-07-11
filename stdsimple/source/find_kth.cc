@@ -66,8 +66,51 @@ int find_kth_element_by_heap(const std::vector<int>& arr, int k) {
     return heap[0];
 }
 
+int find_pivot(std::vector<int>& arr, int lo, int hi) {
+    if (lo == hi) {
+        return lo;
+    }
+    if (lo + 1 == hi) {
+        if (arr[lo] > arr[hi]) std::swap(arr[lo], arr[hi]);
+        return lo;
+    }
+    int rand_idx = lo + rand() % (hi - lo + 1);
+    std::swap(arr[rand_idx], arr[0]);
+    int target = arr[0];
+    while (lo < hi) {
+        while (lo < hi && arr[hi] >= target) --hi;
+        arr[lo] = arr[hi];
+        std::swap(arr[lo], arr[hi]);
+        while (lo < hi && arr[lo] <= target) ++lo;
+        arr[hi] = arr[lo];
+    }
+    arr[lo] = target;
+    return lo;
+}
+
+int find_kth_element_by_partition(const std::vector<int>& arr, int k) {
+    std::vector<int> arr_copy = arr;
+    int n = arr_copy.size();
+    int pivot = -1;
+    int lo = 0;
+    int hi = n - 1;
+    // for (int x : arr_copy) printf("%d ", x); printf("\n");
+    while (pivot != n - k) {
+        // pivot is init as -1, so this is true in first execution
+        if (pivot < n - k) {
+            lo = pivot + 1;
+        } else {
+            hi = pivot - 1;
+        }
+        pivot = find_pivot(arr_copy, lo, hi);
+        // printf("pivot[%d]: %d\n", pivot, arr_copy[pivot]);
+        // for (int x : arr_copy) printf("%d ", x); printf("\n");
+    }
+    return arr_copy[pivot];
+}
+
 int find_kth_element(const std::vector<int>& arr, int k) {
-    return find_kth_element_by_heap(arr, k);
+    return find_kth_element_by_partition(arr, k);
 }
 
 int find_kth_element_by_sort(const std::vector<int>& arr, int k) {
