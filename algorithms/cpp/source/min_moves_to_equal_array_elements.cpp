@@ -47,12 +47,13 @@ public:
 TEST_CASE( "test corectness", "leetcode.cpp.min_moves_to_equal_array_elements" ) {
     MinMoves sol;
     using TestCase = std::tuple< vector<int>, int >;
+    using TestCaseInput = remove_reference<decltype(std::get<0>(TestCase{}))>::type;
     std::vector<TestCase> test_cases {
         TestCase{ {1, 2}, 1 },
         TestCase{ {1, 1, 2}, 1 },
         TestCase{ {1, 2, 3}, 3 },
         TestCase{ {1, 2, 3, 4}, 6 },
-        TestCase{ {}, 0 },
+        TestCase{ TestCaseInput(), 0 },
     };
 
     for (auto & t : test_cases) {

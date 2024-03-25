@@ -36,10 +36,11 @@ public:
 TEST_CASE( "test corectness", "leetcode.cpp.rabbits_in_forest" ) {
     RabbitsInForest sol;
     using TestCase = std::tuple< vector<int>, int >;
+    using TestCaseInput = remove_reference<decltype(std::get<0>(TestCase{}))>::type;
     std::vector<TestCase> test_cases {
         TestCase{ {1, 1, 2}, 5 },
         TestCase{ {10, 10, 10}, 11 },
-        TestCase{ {}, 0 },
+        TestCase{ TestCaseInput(), 0 },
         TestCase{ {3,3,3,3,3}, 8 },
     };
 
